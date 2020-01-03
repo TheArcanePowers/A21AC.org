@@ -1,2 +1,12 @@
 # TheArcanePowers.github.io
- A21 @ AC Website
+ A21 @ AC Website.
+ Hosted here temporarily so that we can acc work on it.
+
+# TODO List
+- Goddamn add multiple languages?!?!
+
+... Say to use the top 10-15 most used languages I guess. Lets do it last bc fuck that shittttt
+
+... Will end up being soooo annoying. Do ..io/it/index.html???
+
+- Are we gonna have newsletters?
