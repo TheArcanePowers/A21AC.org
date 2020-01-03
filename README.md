@@ -4,9 +4,8 @@
 
 # TODO List
 - Goddamn add multiple languages?!?!
-
-... Say to use the top 10-15 most used languages I guess. Lets do it last bc fuck that shittttt
-
-... Will end up being soooo annoying. Do ..io/it/index.html???
+    - Say to use the top 10-15 most used languages I guess. Lets do it last bc fuck that shittttt
+    - Will end up being soooo annoying. Do ..io/it/index.html???
 
 - Are we gonna have newsletters?
+- So much to do loooooool
