@@ -1,0 +1,1 @@
+["AF","AZ","BH","BD","AM","BT","IO","BN","MM","KH","LK","CN","TW","CX","CC","GE","HK","IN","ID","IR","IQ","IL","JP","KZ","JO","KP","KR","KW","KG","LA","LB","MO","MY","MV","MN","OM","NP","PK","PS","PH","TL","QA","SA","SG","VN","SY","TJ","TH","AE","TR","TM","UZ","YE","XD","XE","XS"]

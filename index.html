@@ -1,0 +1,494 @@
+<!DOCTYPE HTML>
+<!--
+	Story by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>A21 @ AC</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/map/jquery-jvectormap-2.0.3.css" type="text/css" media="screen"/>
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<!-- For Map -->
+		<link rel="stylesheet" href="assets/map/jquery-jvectormap-2.0.3.css" type="text/css" media="screen"/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="assets/map/jquery-jvectormap-2.0.3.min.js"></script>
+		<script src="assets/map/jquery-jvectormap-world-mill.js"></script>
+		<!-- For little thing haha -->
+		<link rel="stylesheet" href="assets/css/6inarow.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="divided">
+
+				<!-- One -->
+					<section class="banner style5 orient-left content-align-left image-position-right onload-image-fade-in onload-content-fade-right fullscreen color1 invert">
+						<div class="content">
+							<h1><b>A21 @ AC</b></h1>
+							<p class="major">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<ul class="actions fit">
+								<li><a href="https://www.a21.org" class="button big wide smooth-scroll-middle">A21.org</a></li>
+								<li><a href="#worldMap" class="button big wide smooth-scroll-middle primary">The Map</a></li>
+								<li><a href="#aboutUs" class="button big wide smooth-scroll-middle">Our Mission</a></li>
+							</ul>
+						</div>
+						<div class="image">
+							<img src="images/maxresdefault.jpg" alt="" />
+						</div>
+					</section>
+				<!-- All Map -->
+					<section class="wrapper style1 align-center" id="main-map">
+						<div class="inner">
+							<h2>World Map</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br>
+							<div id="flex-container">
+								<div class="flex-item"><span style="font-weight:900;">Can't find your country?: </span></div>
+								<div class="flex-item"><a href="/north-america">North America</a></div>
+								<div class="flex-item"><a href="/south-america">South America</a></div>
+								<div class="flex-item"><a href="/europe">Europe</a></div>
+								<div class="flex-item"><a href="/africa">Africa</a></div>
+								<div class="flex-item"><a href="/asia">Asia</a></div>
+								<div class="flex-item"><a href="/oceania">Oceania</a></div>
+							</div>
+							</p>
+						</div>
+						<div>
+							<section>
+								<div id="worldMap" style="position: relative; width: 95%; height: 600px; margin: auto;"></div>
+								<script>
+									$(function(){
+										//First initialise json data
+										$.getJSON('/assets/map/data.json', function(data){
+											$('#worldMap').vectorMap({
+											map: 'world_mill',
+											backgroundColor: '#FFFFFF',
+											zoomOnScroll: false,
+											zoomMax: 5,
+											zoomStep: 2.5,
+
+											regionStyle: {
+												initial: {
+													fill: 'Gainsboro',
+												},
+												hover: {
+													fill: 'Grey',
+													cursor: 'pointer',
+													stroke: 'black',
+													"stroke-width": 1,
+													"stroke-opacity": 0.5
+												},
+											  },
+
+											onRegionTipShow: function(event, label, code){
+											  label.html(
+												'<p id="popup">' + label.html() + '<br>' + data.countries[code] + '</p>'
+											  );
+											},
+											
+											onRegionClick: function(e, code){
+												 window.location = "/redirect.php?country="+code; 
+											},
+										  });
+									  });
+									});
+								</script> 
+							</section>
+						</div>
+					</section>
+
+				<!-- About Us -->
+				<section class="wrapper style1 align-center" id="aboutUs">
+						<div class="inner">
+							<div class="index align-left">
+								<section>
+									<header>
+										<h3>Who we are</h3>
+									</header>
+									<div class="content">
+										<span class="image fit">
+											<img src="images/banner.jpg" alt="Group photo" height="300px">
+										</span>
+										<p>
+											Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+										</p>
+									</div>
+								</section>
+								<section>
+									<header>
+										<h3>Why did we make this?</h3>
+									</header>
+									<div class="content">
+										<p>
+											Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+										</p>
+									</div>
+								</section>
+								<section>
+									<header>
+										<h3>More info, and whats next</h3>
+									</header>
+									<div class="content">
+										<p>
+										<span class="image right">
+											<img src="images/pic03.jpg" alt="Group photo" height="300px">
+										</span>
+											Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+										</p>
+									</div>
+								</section>
+							</div>
+						</div>
+					</section>
+					
+				<!-- A21 Form -->
+				<section class="wrapper style1 align-center">
+					<div class="inner">
+						<h2>Subscribe to A21's newsletter</h2>
+						<br>
+						<form role="form" class="form-inline" name="A21_signup" method="post" action="https://www.a21.org/ajax.php?Recipient/signUp">
+							<div class="fields">
+								<div class="field fifth">
+									<input type="text" placeholder="First Name" id="firstname" name="firstname">
+								</div>
+								<div class="field fifth">
+									<input type="text" placeholder="Last Name" id="lastname" name="lastname">
+								</div>
+								<div class="field fifth">
+									<input type="email" placeholder="Email" id="email" name="email">
+								</div>
+								<div class="field fifth">
+									<select id="country" name="country" class="form-control">
+										<option value="">Country</option>
+										<option value="US">United States</option>
+										<option value="AU">Australia</option>
+										<option value="UK">United Kingdom</option>
+										<option value="">---</option>
+										<option value="AF">Afghanistan</option>
+										<option value="AX">Aland Islands</option>
+										<option value="AL">Albania</option>
+										<option value="DZ">Algeria</option>
+										<option value="AS">American Samoa</option>
+										<option value="AD">Andorra</option>
+										<option value="AO">Angola</option>
+										<option value="AI">Anguilla</option>
+										<option value="AQ">Antarctica</option>
+										<option value="AG">Antigua and Barbuda</option>
+										<option value="AR">Argentina</option>
+										<option value="AM">Armenia</option>
+										<option value="AW">Aruba</option>
+										<option value="AC">Ascension Island</option>
+										<option value="AT">Austria</option>
+										<option value="AZ">Azerbaijan</option>
+										<option value="BS">Bahamas</option>
+										<option value="BH">Bahrain</option>
+										<option value="BB">Barbados</option>
+										<option value="BD">Bangladesh</option>
+										<option value="BY">Belarus</option>
+										<option value="BE">Belgium</option>
+										<option value="BZ">Belize</option>
+										<option value="BJ">Benin</option>
+										<option value="BM">Bermuda</option>
+										<option value="BT">Bhutan</option>
+										<option value="BW">Botswana</option>
+										<option value="BO">Bolivia</option>
+										<option value="BA">Bosnia and Herzegovina</option>
+										<option value="BV">Bouvet Island</option>
+										<option value="BR">Brazil</option>
+										<option value="IO">British Indian Ocean Territory</option>
+										<option value="BN">Brunei Darussalam</option>
+										<option value="BG">Bulgaria</option>
+										<option value="BF">Burkina Faso</option>
+										<option value="BI">Burundi</option>
+										<option value="KH">Cambodia</option>
+										<option value="CM">Cameroon</option>
+										<option value="CA">Canada</option>
+										<option value="CV">Cape Verde</option>
+										<option value="KY">Cayman Islands</option>
+										<option value="CF">Central African Republic</option>
+										<option value="TD">Chad</option>
+										<option value="CL">Chile</option>
+										<option value="CN">China</option>
+										<option value="CX">Christmas Island</option>
+										<option value="CC">Cocos (Keeling) Islands</option>
+										<option value="CO">Colombia</option>
+										<option value="KM">Comoros</option>
+										<option value="CG">Congo</option>
+										<option value="CD">Congo, Democratic Republic</option>
+										<option value="CK">Cook Islands</option>
+										<option value="CR">Costa Rica</option>
+										<option value="CI">Cote D'Ivoire (Ivory Coast)</option>
+										<option value="HR">Croatia (Hrvatska)</option>
+										<option value="CU">Cuba</option>
+										<option value="CY">Cyprus</option>
+										<option value="CZ">Czech Republic</option>
+										<option value="CS">Czechoslovakia (former)</option>
+										<option value="DK">Denmark</option>
+										<option value="DJ">Djibouti</option>
+										<option value="DM">Dominica</option>
+										<option value="DO">Dominican Republic</option>
+										<option value="TP">East Timor</option>
+										<option value="EC">Ecuador</option>
+										<option value="EG">Egypt</option>
+										<option value="SV">El Salvador</option>
+										<option value="GQ">Equatorial Guinea</option>
+										<option value="ER">Eritrea</option>
+										<option value="EE">Estonia</option>
+										<option value="ET">Ethiopia</option>
+										<option value="FK">Falkland Islands (Malvinas)</option>
+										<option value="FO">Faroe Islands</option>
+										<option value="FJ">Fiji</option>
+										<option value="FI">Finland</option>
+										<option value="FR">France</option>
+										<option value="FX">France, Metropolitan</option>
+										<option value="GF">French Guiana</option>
+										<option value="PF">French Polynesia</option>
+										<option value="TF">French Southern Territories</option>
+										<option value="MK">Macedonia</option>
+										<option value="GA">Gabon</option>
+										<option value="GM">Gambia</option>
+										<option value="GE">Georgia</option>
+										<option value="DE">Germany</option>
+										<option value="GH">Ghana</option>
+										<option value="GI">Gibraltar</option>
+										<option value="GR">Greece</option>
+										<option value="GL">Greenland</option>
+										<option value="GD">Grenada</option>
+										<option value="GP">Guadeloupe</option>
+										<option value="GU">Guam</option>
+										<option value="GT">Guatemala</option>
+										<option value="GN">Guinea</option>
+										<option value="GW">Guinea-Bissau</option>
+										<option value="GY">Guyana</option>
+										<option value="HT">Haiti</option>
+										<option value="HM">Heard and McDonald Islands</option>
+										<option value="HN">Honduras</option>
+										<option value="HK">Hong Kong</option>
+										<option value="HU">Hungary</option>
+										<option value="IS">Iceland</option>
+										<option value="IN">India</option>
+										<option value="ID">Indonesia</option>
+										<option value="IR">Iran</option>
+										<option value="IQ">Iraq</option>
+										<option value="IE">Ireland</option>
+										<option value="IL">Israel</option>
+										<option value="IM">Isle of Man</option>
+										<option value="IT">Italy</option>
+										<option value="JE">Jersey</option>
+										<option value="JM">Jamaica</option>
+										<option value="JP">Japan</option>
+										<option value="JO">Jordan</option>
+										<option value="KZ">Kazakhstan</option>
+										<option value="KE">Kenya</option>
+										<option value="KI">Kiribati</option>
+										<option value="KP">Korea (North)</option>
+										<option value="KR">Korea (South)</option>
+										<option value="KW">Kuwait</option>
+										<option value="KG">Kyrgyzstan</option>
+										<option value="LA">Laos</option>
+										<option value="LV">Latvia</option>
+										<option value="LB">Lebanon</option>
+										<option value="LI">Liechtenstein</option>
+										<option value="LR">Liberia</option>
+										<option value="LY">Libya</option>
+										<option value="LS">Lesotho</option>
+										<option value="LT">Lithuania</option>
+										<option value="LU">Luxembourg</option>
+										<option value="MO">Macau</option>
+										<option value="MG">Madagascar</option>
+										<option value="MW">Malawi</option>
+										<option value="MY">Malaysia</option>
+										<option value="MV">Maldives</option>
+										<option value="ML">Mali</option>
+										<option value="MT">Malta</option>
+										<option value="MH">Marshall Islands</option>
+										<option value="MQ">Martinique</option>
+										<option value="MR">Mauritania</option>
+										<option value="MU">Mauritius</option>
+										<option value="YT">Mayotte</option>
+										<option value="MX">Mexico</option>
+										<option value="FM">Micronesia</option>
+										<option value="MD">Moldova</option>
+										<option value="MC">Monaco</option>
+										<option value="ME">Montenegro</option>
+										<option value="MS">Montserrat</option>
+										<option value="MA">Morocco</option>
+										<option value="MZ">Mozambique</option>
+										<option value="MM">Myanmar</option>
+										<option value="NA">Namibia</option>
+										<option value="NR">Nauru</option>
+										<option value="NP">Nepal</option>
+										<option value="NL">Netherlands</option>
+										<option value="AN">Netherlands Antilles</option>
+										<option value="NT">Neutral Zone</option>
+										<option value="NC">New Caledonia</option>
+										<option value="NZ">New Zealand</option>
+										<option value="NI">Nicaragua</option>
+										<option value="NE">Niger</option>
+										<option value="NG">Nigeria</option>
+										<option value="NU">Niue</option>
+										<option value="NF">Norfolk Island</option>
+										<option value="MP">Northern Mariana Islands</option>
+										<option value="NO">Norway</option>
+										<option value="OM">Oman</option>
+										<option value="PK">Pakistan</option>
+										<option value="PW">Palau</option>
+										<option value="PS">Palestinian Territory, Occupied</option>
+										<option value="PA">Panama</option>
+										<option value="PG">Papua New Guinea</option>
+										<option value="PY">Paraguay</option>
+										<option value="PE">Peru</option>
+										<option value="PH">Philippines</option>
+										<option value="PN">Pitcairn</option>
+										<option value="PL">Poland</option>
+										<option value="PT">Portugal</option>
+										<option value="PR">Puerto Rico</option>
+										<option value="QA">Qatar</option>
+										<option value="RE">Reunion</option>
+										<option value="RO">Romania</option>
+										<option value="RU">Russian Federation</option>
+										<option value="RW">Rwanda</option>
+										<option value="GS">S. Georgia and S. Sandwich Isls.</option>
+										<option value="KN">Saint Kitts and Nevis</option>
+										<option value="LC">Saint Lucia</option>
+										<option value="VC">Saint Vincent &amp; the Grenadines</option>
+										<option value="WS">Samoa</option>
+										<option value="SM">San Marino</option>
+										<option value="ST">Sao Tome and Principe</option>
+										<option value="SA">Saudi Arabia</option>
+										<option value="SN">Senegal</option>
+										<option value="RS">Serbia</option>
+										<option value="SC">Seychelles</option>
+										<option value="SL">Sierra Leone</option>
+										<option value="SG">Singapore</option>
+										<option value="SI">Slovenia</option>
+										<option value="SK">Slovak Republic</option>
+										<option value="SB">Solomon Islands</option>
+										<option value="SO">Somalia</option>
+										<option value="ZA">South Africa</option>
+										<option value="ES">Spain</option>
+										<option value="LK">Sri Lanka</option>
+										<option value="SH">St. Helena</option>
+										<option value="PM">St. Pierre and Miquelon</option>
+										<option value="SD">Sudan</option>
+										<option value="SR">Suriname</option>
+										<option value="SJ">Svalbard &amp; Jan Mayen Islands</option>
+										<option value="SZ">Swaziland</option>
+										<option value="SE">Sweden</option>
+										<option value="CH">Switzerland</option>
+										<option value="SY">Syria</option>
+										<option value="TW">Taiwan</option>
+										<option value="TJ">Tajikistan</option>
+										<option value="TZ">Tanzania</option>
+										<option value="TH">Thailand</option>
+										<option value="TG">Togo</option>
+										<option value="TK">Tokelau</option>
+										<option value="TO">Tonga</option>
+										<option value="TT">Trinidad and Tobago</option>
+										<option value="TN">Tunisia</option>
+										<option value="TR">Turkey</option>
+										<option value="TM">Turkmenistan</option>
+										<option value="TC">Turks and Caicos Islands</option>
+										<option value="TV">Tuvalu</option>
+										<option value="UG">Uganda</option>
+										<option value="UA">Ukraine</option>
+										<option value="AE">United Arab Emirates</option>
+										<option value="UM">US Minor Outlying Islands</option>
+										<option value="UY">Uruguay</option>
+										<option value="SU">USSR (former)</option>
+										<option value="UZ">Uzbekistan</option>
+										<option value="VU">Vanuatu</option>
+										<option value="VA">Vatican City State (Holy See)</option>
+										<option value="VE">Venezuela</option>
+										<option value="VN">Viet Nam</option>
+										<option value="VG">British Virgin Islands</option>
+										<option value="VI">Virgin Islands (U.S.)</option>
+										<option value="WF">Wallis and Futuna Islands</option>
+										<option value="EH">Western Sahara</option>
+										<option value="YE">Yemen</option>
+										<option value="YU">Yugoslavia (former)</option>
+										<option value="ZM">Zambia</option>
+										<option value="ZW">Zimbabwe</option>
+									</select>
+									</div>
+								<div class="field fifth">
+									<input type="hidden" name="code" value="Newsletter">
+									<input type="hidden" name="valid" value="">
+									<input name="redirect" value="signup-confirm" type="hidden">
+									<ul class="actions special">
+										<li><input class="button primary fit" type="submit" id="submit" value="SUBSCRIBE"></li>
+									</ul>
+								</div>
+							</div>
+						</form>
+					</div>
+				</section>
+				
+				<!-- Contact us & something else idk what -->
+				<section class="wrapper style1">
+					<div class="inner">
+						<div class="index align-left">
+							<section>
+								<header>
+									<h3> Contact Us</h3>
+								</header>
+								<div class="content">
+									<form method="post" action="#">
+										<div class="fields">
+											<div class="field half">
+												<label for="name">Name</label>
+												<input type="text" name="name" id="name" value="" />
+											</div>
+											<div class="field half">
+												<label for="email">Email</label>
+												<input type="email" name="email" id="email" value="" />
+											</div>
+											<div class="field">
+												<label for="message">Message</label>
+												<textarea name="message" id="message" rows="6"></textarea>
+											</div>
+										</div>
+										<ul class="actions special">
+											<li><input type="submit" name="submit" id="submit" value="Send Message" /></li>
+										</ul>
+									</form>
+								</div>
+							</section>
+							<section>
+								<header>
+									<h3>SOmething Else for sure</h3>
+								</header>
+							<div class="content">
+								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Footer -->
+				<footer class="wrapper style1 align-center">
+					<div class="inner">
+						<ul class="icons">
+							<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands style2 fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							<li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<p>&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</div>
+				</footer>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script> 
+	</body>
+</html>
