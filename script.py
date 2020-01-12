@@ -18,6 +18,6 @@ for flag_file in glob.glob("*.png"):
 <section>\n\
     <span class="image fit"><img src="flags/' + final_flag + '"></img></span>\n\
     <h3>' + final_CountryName + '</h3>\n\
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.\n\
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>\n\
 </section>')
 
