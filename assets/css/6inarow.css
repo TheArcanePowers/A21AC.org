@@ -1,5 +1,7 @@
 div#flex-container {
 	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 	align-items: stretch; /* Default */
 	justify-content: space-between;
 	width: 100%;
