@@ -2,6 +2,7 @@
 <html>
 	<head>A21 @ AC</head>
 	<?php
+	echo ("PHP RUNNING");
 	if(array_key_exists("country", $_GET) and strlen($_GET["country"]) == 2){
 		$africa = json_decode(file_get_contents('assets/redirector/africa.txt'), true);
 		$europe = json_decode(file_get_contents('assets/redirector/europe.txt'), true);
